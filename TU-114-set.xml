@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+TU-114 set file.
+
+2005-04-11 Lee Elliott
+************************************************************************
+-->
+
+<PropertyList>
+  <sim>
+<!--
+    <startup>
+      <splash-texture>Aircraft/TU-114/TU-114-splash.rgb</splash-texture>
+    </startup>
+-->
+    <flight-model>yasim</flight-model>
+    <status>beta</status>
+    <author>Lee Elliott</author>
+    <aero>TU-114-yasim</aero>
+    <fuel-fraction>1.0</fuel-fraction>
+    <description>Tupolev TU-114 airliner (YASim fdm)</description>
+    <virtual-cockpit archive="y">true</virtual-cockpit>
+    <chase-distance-m type="double" archive="y">-100.0</chase-distance-m>
+    <number-views type="int" archive="y">8</number-views>
+
+    <view n="0">
+      <internal archive="y">true</internal>
+      <config>
+        <x-offset-m archive="y">-1.0</x-offset-m>
+        <y-offset-m archive="y">1.4</y-offset-m>
+        <z-offset-m archive="y">3.6</z-offset-m>
+        <pitch-offset-deg>0</pitch-offset-deg>
+        <default-field-of-view-deg>55</default-field-of-view-deg>
+      </config>
+    </view>
+
+    <view n="6">
+      <name>Navigator View</name>
+      <type>lookfrom</type>
+      <internal archive="y">true</internal>
+      <config>
+        <from-model type="bool">true</from-model>
+        <from-model-idx type="int">0</from-model-idx>
+        <ground-level-nearplane-m type="double">0.05f</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+        <default-pitch-deg type="double">-15</default-pitch-deg>
+        <default-heading-deg type="double">0</default-heading-deg>
+        <front-direction-deg type="double">0</front-direction-deg>
+        <front-left-direction-deg type="double">45</front-left-direction-deg>
+        <left-direction-deg type="double">90</left-direction-deg>
+        <back-left-direction-deg type="double">135</back-left-direction-deg>
+        <back-direction-deg type="double">180</back-direction-deg>
+        <back-right-direction-deg type="double">225</back-right-direction-deg>
+        <right-direction-deg type="double">270</right-direction-deg>
+        <front-right-direction-deg type="double">315</front-right-direction-deg>
+        <x-offset-m archive="y">0.0</x-offset-m>
+        <y-offset-m archive="y">-0.11</y-offset-m>
+        <z-offset-m archive="y">0.55</z-offset-m>
+        <pitch-offset-deg>-15</pitch-offset-deg>
+        <default-field-of-view-deg>55</default-field-of-view-deg>
+      </config>
+    </view>
+
+    <view n="7">
+      <name>Drop View</name>
+      <type>lookat</type>
+      <config>
+        <eye-lat-deg-path>/sim/view[7]/latitude-deg</eye-lat-deg-path>
+        <eye-lon-deg-path>/sim/view[7]/longitude-deg</eye-lon-deg-path>
+        <eye-alt-ft-path>/sim/view[7]/altitude-ft</eye-alt-ft-path>
+        <eye-roll-deg-path>/sim/view[7]/roll-deg</eye-roll-deg-path>
+        <eye-pitch-deg-path>/sim/view[7]/pitch-deg</eye-pitch-deg-path>
+        <eye-heading-deg-path>/sim/view[7]/heading-deg</eye-heading-deg-path>
+
+        <at-model type="bool">true</at-model>
+        <at-model-idx type="int">0</at-model-idx>
+
+        <ground-level-nearplane-m type="double">1.0f</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+
+        <x-offset-m type="double">0</x-offset-m>
+        <y-offset-m type="double">0</y-offset-m>
+        <z-offset-m type="double">0</z-offset-m>
+        <target-z-offset-m archive="y" type="double">25.0</target-z-offset-m>
+      </config>
+    </view>
+
+<!-- Shift the camera target point back -->
+    <view n="1">
+      <config>
+        <target-z-offset-m archive="y" type="double">25.0</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="2">
+      <config>
+        <x-offset-m archive="y" type="double">14.5</x-offset-m>
+        <z-offset-m archive="y">-19.7</z-offset-m>
+        <target-z-offset-m archive="y" type="double">25.0</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="3">
+      <config>
+        <target-z-offset-m archive="y" type="double">25.0</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="5">
+      <config>
+        <target-z-offset-m archive="y" type="double">25.0</target-z-offset-m>
+      </config>
+    </view>
+
+    <current-view>
+      <field-of-view>55.0</field-of-view>
+    </current-view>
+
+    <sound>
+      <audible>true</audible>
+      <path>Aircraft/TU-114/Sounds/TU-114-sound.xml</path>
+    </sound>
+
+    <panel>
+      <path>Aircraft/TU-114/Panels/TU-114-vfr-panel.xml</path>
+    </panel>
+    <panel_2>
+      <path>Aircraft/TU-114/Panels/TU-114-mini-panel.xml</path>
+    </panel_2>
+
+    <hud>
+      <path>Aircraft/TU-114/Huds/TU-114-hud1.xml</path>
+      <visibility>true</visibility>
+    </hud>
+
+    <model>
+      <path>Aircraft/TU-114/Models/TU-114-model.xml</path>
+    </model>
+
+    <systems>
+      <autopilot>
+        <path>Aircraft/TU-114/Systems/TU-114-autopilot.xml</path>
+      </autopilot>
+      <electrical>
+        <path>Aircraft/TU-114/Systems/TU-114-electrical.xml</path>
+      </electrical>
+    </systems>
+
+<!--sub models -->
+    <submodels>
+      <serviceable type="bool">1</serviceable>
+      <path>Aircraft/TU-114/TU-114-submodels.xml</path>
+    </submodels>
+
+<!-- Flap settings -->
+    <flaps>
+      <setting>0.00</setting>
+      <setting>0.08</setting>
+      <setting>0.16</setting>
+      <setting>0.32</setting>
+      <setting>0.48</setting>
+      <setting>0.64</setting>
+      <setting>0.82</setting>
+      <setting>1.00</setting>
+    </flaps>
+
+  </sim>
+
+<!-- Keboard changes -->
+  <input>
+    <keyboard>
+      <key n="75">
+        <name>K</name>
+        <desc>Toggle trajectory markers</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>TU114.toggle_traj_mkr()</script>
+        </binding>
+      </key>
+
+<!-- Update Tower View position -->
+       <key n="76">
+        <name>U</name>
+        <desc>Update Tower View position</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>TU114.update_tower_view_pos()</script>
+        </binding>
+      </key>
+      
+<!-- Update Drop View position -->
+       <key n="85">
+        <name>U</name>
+        <desc>Update Drop View position</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>TU114.update_drop_view_pos()</script>
+        </binding>
+      </key>
+      
+    </keyboard>
+  </input>
+
+  <autopilot>
+    <settings>
+      <approach-AoA-deg type="float">9</approach-AoA-deg>
+      <climb-out-altitude-ft type="float">100.0</climb-out-altitude-ft>
+      <climb-out-pitch-deg type="float">10.25</climb-out-pitch-deg>
+      <cruise-prop-pitch type="float">0.36</cruise-prop-pitch>
+      <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
+      <nav1-final-approach-speed-kt type="float">240.0</nav1-final-approach-speed-kt>
+      <take-off-flap type="float">0.48</take-off-flap>
+      <take-off-ground-roll-pitch-deg type="float">0.0</take-off-ground-roll-pitch-deg>
+      <take-off-pitch-deg type="float">0.0</take-off-pitch-deg>
+      <take-off-prop-pitch type="float">1.0</take-off-prop-pitch>
+      <take-off-rotation-speed-kts type="float">130.0</take-off-rotation-speed-kts>
+      <take-off-rotation-deg type="float">10.25</take-off-rotation-deg>
+      <target-agl-ft type="float">1000</target-agl-ft>
+      <target-altitude-ft type="float">3000</target-altitude-ft>
+      <target-pitch-deg type="float">3</target-pitch-deg>
+      <target-vfps type="float">0</target-vfps>
+      <target-speed-kt type="float">320.0</target-speed-kt>
+      <target-mach type="float">0.32</target-mach>
+      <target-vfps type="float">-1.0</target-vfps>
+    </settings>
+
+    <locks>
+      <auto-landing type="string">Enabled</auto-landing>
+      <auto-prop-pitch type="string">engaged</auto-prop-pitch>
+      <auto-take-off type="string">Enabled</auto-take-off>
+      <rudder-control type="string">Initialised</rudder-control>
+      <AoA-lock type="string">Initialised</AoA-lock>
+    </locks>
+  </autopilot>
+ 
+<!-- Start with the Parking Brake on -->
+  <controls>
+    <gear>
+      <brake-parking type="double">1.0</brake-parking>
+    </gear>
+  </controls>
+  
+<!-- Engine indexes -->
+  <engines>
+    <engine n="0">
+      <engine-num type="int">0</engine-num>
+    </engine>
+    <engine n="1">
+      <engine-num type="int">1</engine-num>
+    </engine>
+    <engine n="2">
+      <engine-num type="int">2</engine-num>
+    </engine>
+    <engine n="3">
+      <engine-num type="int">3</engine-num>
+    </engine>
+  </engines>
+
+<!-- Fuel Tank indexes -->
+  <consumables>
+    <fuel>
+      <tank n="0">
+        <tank-num type="int">0</tank-num>
+      </tank>
+      <tank n="1">
+        <tank-num type="int">1</tank-num>
+      </tank>
+      <tank n="2">
+        <tank-num type="int">2</tank-num>
+      </tank>
+      <tank n="3">
+        <tank-num type="int">3</tank-num>
+      </tank>
+      <tank n="4">
+        <tank-num type="int">4</tank-num>
+      </tank>
+    </fuel>
+  </consumables>
+
+<!-- Passenger/cargo/payload for the YASim solver -->
+  <yasim>
+    <weights>
+      <payload type="float">55115</payload>
+    </weights>
+  </yasim>
+
+  <instrumentation>
+    <radar>
+      <range type="int" archive="y">40</range>
+      <minimized type="bool" archive="y">true</minimized>
+    </radar>
+  </instrumentation>
+
+  <nasal>
+    <TU114>
+      <file>Aircraft/TU-114/Nasal/TU-114.nas</file>
+      <script>start_up();</script>
+    </TU114>
+  </nasal>
+
+</PropertyList>
