@@ -9,6 +9,16 @@ TU-114 set file.
 
 <PropertyList>
   <sim>
+   <help>
+     <key>
+       <name>K</name>
+       <desc>Toggle trajectory markers</desc>
+     </key>
+     <key>
+        <name>L/U</name>
+        <desc>Update Tower/Drop View position</desc>
+     </key>
+   </help>
 <!--
     <startup>
       <splash-texture>Aircraft/TU-114/TU-114-splash.rgb</splash-texture>
@@ -167,7 +177,7 @@ TU-114 set file.
 
   </sim>
 
-<!-- Keboard changes -->
+<!-- Keyboard changes -->
   <input>
     <keyboard>
       <key n="75">
@@ -181,7 +191,7 @@ TU-114 set file.
 
 <!-- Update Tower View position -->
        <key n="76">
-        <name>U</name>
+        <name>L</name>
         <desc>Update Tower View position</desc>
         <binding n="0">
           <command>nasal</command>
