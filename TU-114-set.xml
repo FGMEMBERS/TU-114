@@ -211,6 +211,12 @@ TU-114 set file.
       
     </keyboard>
   </input>
+	
+  <ai>
+    <submodels>
+      <trajectory-markers type="bool">0</trajectory-markers>
+    </submodels>
+  </ai>
 
   <autopilot>
     <settings>
