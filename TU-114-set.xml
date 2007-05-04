@@ -32,7 +32,6 @@ TU-114 set file.
     <description>Tupolev TU-114 airliner (YASim fdm)</description>
     <virtual-cockpit archive="y">true</virtual-cockpit>
     <chase-distance-m type="double" archive="y">-100.0</chase-distance-m>
-    <number-views type="int" archive="y">8</number-views>
 
     <view n="0">
       <internal archive="y">true</internal>
@@ -45,7 +44,7 @@ TU-114 set file.
       </config>
     </view>
 
-    <view n="6">
+    <view n="100">
       <name>Navigator View</name>
       <type>lookfrom</type>
       <internal archive="y">true</internal>
@@ -72,16 +71,16 @@ TU-114 set file.
       </config>
     </view>
 
-    <view n="7">
+    <view n="101">
       <name>Drop View</name>
       <type>lookat</type>
       <config>
-        <eye-lat-deg-path>/sim/view[7]/latitude-deg</eye-lat-deg-path>
-        <eye-lon-deg-path>/sim/view[7]/longitude-deg</eye-lon-deg-path>
-        <eye-alt-ft-path>/sim/view[7]/altitude-ft</eye-alt-ft-path>
-        <eye-roll-deg-path>/sim/view[7]/roll-deg</eye-roll-deg-path>
-        <eye-pitch-deg-path>/sim/view[7]/pitch-deg</eye-pitch-deg-path>
-        <eye-heading-deg-path>/sim/view[7]/heading-deg</eye-heading-deg-path>
+        <eye-lat-deg-path>/sim/view[101]/latitude-deg</eye-lat-deg-path>
+        <eye-lon-deg-path>/sim/view[101]/longitude-deg</eye-lon-deg-path>
+        <eye-alt-ft-path>/sim/view[101]/altitude-ft</eye-alt-ft-path>
+        <eye-roll-deg-path>/sim/view[101]/roll-deg</eye-roll-deg-path>
+        <eye-pitch-deg-path>/sim/view[101]/pitch-deg</eye-pitch-deg-path>
+        <eye-heading-deg-path>/sim/view[101]/heading-deg</eye-heading-deg-path>
 
         <at-model type="bool">true</at-model>
         <at-model-idx type="int">0</at-model-idx>
