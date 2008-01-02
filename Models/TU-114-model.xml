@@ -1430,15 +1430,15 @@ TU-114 model/animation config.
     <interpolation>
       <entry>
         <ind>0.0</ind>
-        <dep>1.0</dep>
+        <dep>0.0</dep>
       </entry>
       <entry>
         <ind>300</ind>
-        <dep>1.0</dep>
+        <dep>0.0</dep>
       </entry>
       <entry>
         <ind>500</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
     </interpolation>
     <min>0.0</min>
@@ -1452,19 +1452,19 @@ TU-114 model/animation config.
     <interpolation>
       <entry>
         <ind>0.0</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
       <entry>
         <ind>300</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
       <entry>
         <ind>500</ind>
-        <dep>0.1</dep>
+        <dep>0.95</dep>
       </entry>
     </interpolation>
-    <min>0.0</min>
-    <max>0.1</max>
+    <min>0.01</min>
+    <max>1.0</max>
   </animation>
 
 <!-- Left Outer Rear -->
@@ -1520,15 +1520,15 @@ TU-114 model/animation config.
     <interpolation>
       <entry>
         <ind>0.0</ind>
-        <dep>1.0</dep>
+        <dep>0.0</dep>
       </entry>
       <entry>
         <ind>300</ind>
-        <dep>1.0</dep>
+        <dep>0.0</dep>
       </entry>
       <entry>
         <ind>500</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
     </interpolation>
     <min>0.0</min>
@@ -1542,15 +1542,15 @@ TU-114 model/animation config.
     <interpolation>
       <entry>
         <ind>0.0</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
       <entry>
         <ind>300</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
       <entry>
         <ind>500</ind>
-        <dep>0.1</dep>
+        <dep>0.95</dep>
       </entry>
     </interpolation>
     <min>0.0</min>
@@ -1610,15 +1610,15 @@ TU-114 model/animation config.
     <interpolation>
       <entry>
         <ind>0.0</ind>
-        <dep>1.0</dep>
+        <dep>0.0</dep>
       </entry>
       <entry>
         <ind>300</ind>
-        <dep>1.0</dep>
+        <dep>0.0</dep>
       </entry>
       <entry>
         <ind>500</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
     </interpolation>
     <min>0.0</min>
@@ -1632,15 +1632,15 @@ TU-114 model/animation config.
     <interpolation>
       <entry>
         <ind>0.0</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
       <entry>
         <ind>300</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
       <entry>
         <ind>500</ind>
-        <dep>0.1</dep>
+        <dep>0.95</dep>
       </entry>
     </interpolation>
     <min>0.0</min>
@@ -1700,15 +1700,15 @@ TU-114 model/animation config.
     <interpolation>
       <entry>
         <ind>0.0</ind>
-        <dep>1.0</dep>
+        <dep>0.0</dep>
       </entry>
       <entry>
         <ind>300</ind>
-        <dep>1.0</dep>
+        <dep>0.0</dep>
       </entry>
       <entry>
         <ind>500</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
     </interpolation>
     <min>0.0</min>
@@ -1722,15 +1722,15 @@ TU-114 model/animation config.
     <interpolation>
       <entry>
         <ind>0.0</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
       <entry>
         <ind>300</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
       <entry>
         <ind>500</ind>
-        <dep>0.1</dep>
+        <dep>0.95</dep>
       </entry>
     </interpolation>
     <min>0.0</min>
@@ -1790,15 +1790,15 @@ TU-114 model/animation config.
     <interpolation>
       <entry>
         <ind>0.0</ind>
-        <dep>1.0</dep>
+        <dep>0.0</dep>
       </entry>
       <entry>
         <ind>300</ind>
-        <dep>1.0</dep>
+        <dep>0.0</dep>
       </entry>
       <entry>
         <ind>500</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
     </interpolation>
     <min>0.0</min>
@@ -1812,15 +1812,15 @@ TU-114 model/animation config.
     <interpolation>
       <entry>
         <ind>0.0</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
       <entry>
         <ind>300</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
       <entry>
         <ind>500</ind>
-        <dep>0.1</dep>
+        <dep>0.95</dep>
       </entry>
     </interpolation>
     <min>0.0</min>
@@ -1880,15 +1880,15 @@ TU-114 model/animation config.
     <interpolation>
       <entry>
         <ind>0.0</ind>
-        <dep>1.0</dep>
+        <dep>0.0</dep>
       </entry>
       <entry>
         <ind>300</ind>
-        <dep>1.0</dep>
+        <dep>0.0</dep>
       </entry>
       <entry>
         <ind>500</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
     </interpolation>
     <min>0.0</min>
@@ -1902,15 +1902,15 @@ TU-114 model/animation config.
     <interpolation>
       <entry>
         <ind>0.0</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
       <entry>
         <ind>300</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
       <entry>
         <ind>500</ind>
-        <dep>0.1</dep>
+        <dep>0.95</dep>
       </entry>
     </interpolation>
     <min>0.0</min>
@@ -1970,15 +1970,15 @@ TU-114 model/animation config.
     <interpolation>
       <entry>
         <ind>0.0</ind>
-        <dep>1.0</dep>
+        <dep>0.0</dep>
       </entry>
       <entry>
         <ind>300</ind>
-        <dep>1.0</dep>
+        <dep>0.0</dep>
       </entry>
       <entry>
         <ind>500</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
     </interpolation>
     <min>0.0</min>
@@ -1992,15 +1992,15 @@ TU-114 model/animation config.
     <interpolation>
       <entry>
         <ind>0.0</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
       <entry>
         <ind>300</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
       <entry>
         <ind>500</ind>
-        <dep>0.1</dep>
+        <dep>0.95</dep>
       </entry>
     </interpolation>
     <min>0.0</min>
@@ -2060,15 +2060,15 @@ TU-114 model/animation config.
     <interpolation>
       <entry>
         <ind>0.0</ind>
-        <dep>1.0</dep>
+        <dep>0.0</dep>
       </entry>
       <entry>
         <ind>300</ind>
-        <dep>1.0</dep>
+        <dep>0.0</dep>
       </entry>
       <entry>
         <ind>500</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
     </interpolation>
     <min>0.0</min>
@@ -2082,15 +2082,15 @@ TU-114 model/animation config.
     <interpolation>
       <entry>
         <ind>0.0</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
       <entry>
         <ind>300</ind>
-        <dep>0.0</dep>
+        <dep>1.0</dep>
       </entry>
       <entry>
         <ind>500</ind>
-        <dep>0.1</dep>
+        <dep>0.95</dep>
       </entry>
     </interpolation>
     <min>0.0</min>

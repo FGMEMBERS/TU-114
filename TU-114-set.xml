@@ -1,36 +1,29 @@
 <?xml version="1.0"?>
 <!--
 ************************************************************************
-TU-114 set file.
+TU-114 simulation config.
 
-2005-04-11 Lee Elliott
+2007-12-17 Lee Elliott
 ************************************************************************
 -->
 
 <PropertyList>
   <sim>
-   <help>
-     <key>
-       <name>K</name>
-       <desc>Toggle trajectory markers</desc>
-     </key>
-     <key>
-        <name>L/U</name>
-        <desc>Update Tower/Drop View position</desc>
-     </key>
-   </help>
 <!--
     <startup>
       <splash-texture>Aircraft/TU-114/TU-114-splash.rgb</splash-texture>
     </startup>
 -->
     <flight-model>yasim</flight-model>
-    <status>beta</status>
+    <status>development</status>
     <author>Lee Elliott</author>
     <aero>TU-114-yasim</aero>
     <fuel-fraction>1.0</fuel-fraction>
-    <description>Tupolev TU-114 airliner (YASim fdm)</description>
+
+    <description>TU-114 Airliner (YASim FDM)</description>
+
     <virtual-cockpit archive="y">true</virtual-cockpit>
+
     <chase-distance-m type="double" archive="y">-100.0</chase-distance-m>
 
     <view n="0">
@@ -104,6 +97,7 @@ TU-114 set file.
 
     <view n="2">
       <config>
+        <x-offset-m archive="y" type="double">0.0</x-offset-m>
         <y-offset-m archive="y" type="double">14.5</y-offset-m>
         <z-offset-m archive="y">-19.7</z-offset-m>
         <target-z-offset-m archive="y" type="double">25.0</target-z-offset-m>
@@ -151,7 +145,8 @@ TU-114 set file.
     </panel_2>
 
     <hud>
-      <path>Aircraft/TU-114/Huds/TU-114-hud1.xml</path>
+      <path n="0">Aircraft/TU-114/Huds/TU-114-hud1.xml</path>
+      <path n="1">Aircraft/TU-114/Huds/TU-114-newhud.xml</path>
       <visibility>true</visibility>
     </hud>
 
@@ -163,9 +158,6 @@ TU-114 set file.
       <autopilot>
         <path>Aircraft/TU-114/Systems/TU-114-autopilot.xml</path>
       </autopilot>
-      <electrical>
-        <path>Aircraft/TU-114/Systems/TU-114-electrical.xml</path>
-      </electrical>
     </systems>
 
 <!--sub models -->
@@ -186,6 +178,67 @@ TU-114 set file.
       <setting>1.00</setting>
     </flaps>
 
+    <gui>
+      <dialogs>
+        <TFA-popup>
+          <config>
+            <dialog include="Dialogs/TFA-popup.xml"/>
+          </config>
+        </TFA-popup>
+      </dialogs>
+    </gui>
+
+<!-- AoA Indexer target 9.0 deg -->
+    <aoa-indexer>
+      <too-slow-deg>10.5</too-slow-deg>  <!-- target +1.5 deg -->
+      <slow-deg>9.5</slow-deg>          <!-- target +0.5 deg -->         
+      <fast-deg>8.5</fast-deg>          <!-- target -0.5 deg -->         
+      <too-fast-deg>7.5</too-fast-deg>  <!-- target -1.5 deg -->         
+    </aoa-indexer>
+
+    <help>
+      <title>TU-114</title>
+      <key>
+        <name>j/k</name>
+        <desc>decrease/increase spoilers</desc>
+      </key>
+      <key>
+        <name>K</name>
+        <desc>toggle trajectory markers</desc>
+      </key>
+      <key>
+        <name>U</name>
+        <desc>update drop view position</desc>
+      </key>
+      <line>Approach AoA 9.0 deg</line>
+      <line></line>
+      <line>AP Modes</line>
+      <line>    AH - Altitude hold</line>
+      <line>    TF - Terrain follow/AGL hold</line>
+      <line>    TO - Auto take-off</line>
+      <line>    IL - ILS/Auto landing</line>
+      <line>    MC - Mach Climb</line>
+      <line></line>
+      <line>Click on AP Mode to turn off all A/P locks.</line>
+      <line></line>
+      <line>The 2D VFR panel is just a place-holder for the radio instruments</line>
+      <line> - use the 2D development mini-panel to control the aircraft (Shift-s)</line>
+      <line></line>
+      <line>Set the Altitude hold and TF/AGL settings via the autopilot menu.</line>
+      <line>or the popup dialog.  If an AP Mode is greyed out it is not available.</line>
+      <line></line>
+      <line>To use Mach-Climb mode click on the light blue M in the speed</line>
+      <line>instrument to select mach-hold mode, set the required mach</line>
+      <line>you want to maintain, select MC and then either turn off</line>
+      <line>speed locks (Ctrl-s) and set the throttles manually or select</line>
+      <line>KIAS hold (yellow K) and set a high speed - this will force</line>
+      <line>the throttles to 100%</line>
+      <line></line>
+      <line>This aircraft is still at a very early stage of development and many</line>
+      <line>features are missing/incomplete/incorrect.  Some of the controls are</line>
+      <line>missing and can only be accessed via the property browser.</line>
+    </help>
+
   </sim>
 
 <!-- Keyboard changes -->
@@ -200,16 +253,6 @@ TU-114 set file.
         </binding>
       </key>
 
-<!-- Update Tower View position -->
-       <key n="76">
-        <name>L</name>
-        <desc>Update Tower View position</desc>
-        <binding n="0">
-          <command>nasal</command>
-          <script>TU114.update_tower_view_pos()</script>
-        </binding>
-      </key>
-      
 <!-- Update Drop View position -->
        <key n="85">
         <name>U</name>
@@ -229,45 +272,52 @@ TU-114 set file.
     </submodels>
   </ai>
 
+<!-- Autopilot -->
   <autopilot>
     <settings>
-      <approach-AoA-deg type="float">9</approach-AoA-deg>
-      <climb-out-altitude-ft type="float">100.0</climb-out-altitude-ft>
-      <climb-out-pitch-deg type="float">10.25</climb-out-pitch-deg>
-      <cruise-prop-pitch type="float">0.36</cruise-prop-pitch>
-      <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
-      <nav1-final-approach-speed-kt type="float">240.0</nav1-final-approach-speed-kt>
-      <take-off-flap type="float">0.48</take-off-flap>
-      <take-off-ground-roll-pitch-deg type="float">0.0</take-off-ground-roll-pitch-deg>
-      <take-off-pitch-deg type="float">0.0</take-off-pitch-deg>
-      <take-off-prop-pitch type="float">1.0</take-off-prop-pitch>
-      <take-off-rotation-speed-kts type="float">130.0</take-off-rotation-speed-kts>
-      <take-off-rotation-deg type="float">10.25</take-off-rotation-deg>
       <target-agl-ft type="float">1000</target-agl-ft>
       <target-altitude-ft type="float">3000</target-altitude-ft>
-      <target-pitch-deg type="float">3</target-pitch-deg>
-      <target-vfps type="float">0</target-vfps>
+      <target-pitch-deg type="float">0</target-pitch-deg>
+      <target-aoa-deg type="float">0</target-aoa-deg>
+      <target-roll-deg type="float">0</target-roll-deg>
+      <target-climb-rate-fps type="float">0</target-climb-rate-fps>
+      <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
       <target-speed-kt type="float">320.0</target-speed-kt>
-      <target-mach type="float">0.32</target-mach>
-      <target-vfps type="float">-1.0</target-vfps>
+      <target-mach type="float">0.42</target-mach>
+      <approach-aoa-deg type="float">9.0</approach-aoa-deg>
+      <rotate-speed-kt type="float">130.0</rotate-speed-kt>
+      <rotate-pitch-deg type="float">10.25</rotate-pitch-deg>
+      <climbout-pitch-deg type="float">10.0</climbout-pitch-deg>
+      <takeoff-flap-norm type="float">0.48</takeoff-flap-norm>
+      <max-prop-rpm type="float">840</max-prop-rpm>
+      <cruise-prop-rpm type="float">750</cruise-prop-rpm>
+      <target-prop-rpm type="float">0</target-prop-rpm>
     </settings>
 
     <locks>
-      <auto-landing type="string">Enabled</auto-landing>
-      <auto-prop-pitch type="string">engaged</auto-prop-pitch>
-      <auto-take-off type="string">Enabled</auto-take-off>
-      <rudder-control type="string">Initialised</rudder-control>
-      <AoA-lock type="string">Initialised</AoA-lock>
+      <pitch type="string">initialised</pitch>
+      <roll type="string">initialised</roll>
+      <altitude type="string">initialised</altitude>
+      <heading type="string">initialised</heading>
+      <auto-takeoff type="string">enabled</auto-takeoff>
+      <auto-landing type="string">enabled</auto-landing>
+      <rudder type="string">initialised</rudder>
+      <aoa type="string">initialised</aoa>
+      <eng0-auto-prop-pitch type="string">manual</eng0-auto-prop-pitch>
+      <eng1-auto-prop-pitch type="string">manual</eng1-auto-prop-pitch>
+      <eng2-auto-prop-pitch type="string">manual</eng2-auto-prop-pitch>
+      <eng3-auto-prop-pitch type="string">manual</eng3-auto-prop-pitch>
     </locks>
+    
   </autopilot>
- 
+
 <!-- Start with the Parking Brake on -->
   <controls>
     <gear>
       <brake-parking type="double">1.0</brake-parking>
     </gear>
   </controls>
-  
+
 <!-- Engine indexes -->
   <engines>
     <engine n="0">
@@ -317,11 +367,36 @@ TU-114 set file.
       <range type="int" archive="y">40</range>
       <minimized type="bool" archive="y">true</minimized>
     </radar>
+    <terrain-radar>
+      <hi-elev>
+        <alt-ft type="double">-9999.9</alt-ft>
+        <lat-deg type="double">-9999.9</lat-deg>
+        <lon-deg type="double">-9999.9</lon-deg>
+        <dist-m type="double">-9999.9</dist-m>
+        <collision-status type="string">initialised</collision-status>
+      </hi-elev>
+      <settings>
+        <mode type="string">extend</mode>
+        <state type="string">off</state>
+        <range-m type="double">7500</range-m>
+        <step-m type="double">250</step-m>
+        <max-climb-rate-fps type="double">30</max-climb-rate-fps>
+        <hi-elev-markers type="bool">false</hi-elev-markers>
+      </settings>
+    </terrain-radar>
   </instrumentation>
 
   <nasal>
     <TU114>
-      <file>Aircraft/TU-114/Nasal/TU-114.nas</file>
+      <file>Aircraft/TU-114/Nasal/TU-114-startup.nas</file>
+      <file>Aircraft/TU-114/Nasal/TU-114-dropview.nas</file>
+      <file>Aircraft/TU-114/Nasal/TU-114-trajectory-markers.nas</file>
+      <file>Aircraft/TU-114/Nasal/TU-114-auto-takeoff.nas</file>
+      <file>Aircraft/TU-114/Nasal/TU-114-auto-landing.nas</file>
+      <file>Aircraft/TU-114/Nasal/TU-114-altitude-hold-monitor.nas</file>
+      <file>Aircraft/TU-114/Nasal/TU-114-heading-hold-monitor.nas</file>
+      <file>Aircraft/TU-114/Nasal/TU-114-yaw-monitor.nas</file>
+      <file>Aircraft/TU-114/Nasal/TU-114-tfa.nas</file>
       <script>start_up();</script>
     </TU114>
   </nasal>
