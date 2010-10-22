@@ -145,9 +145,8 @@ TU-114 simulation config.
     </panel_2>
 
     <hud>
-      <path n="0">Aircraft/TU-114/Huds/TU-114-hud1.xml</path>
       <path n="1">Aircraft/TU-114/Huds/TU-114-newhud.xml</path>
-      <visibility>true</visibility>
+      <visibility n="1">true</visibility>
     </hud>
 
     <model>
