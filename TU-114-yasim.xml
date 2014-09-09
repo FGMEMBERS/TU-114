@@ -1,0 +1,338 @@
+<!--  TU-114 YASim config.
+
+I found the following figures for the TU-114 weights:
+
+Empty weight:  206130 lbs
+Max TO weight: 382498 lbs
+Useful load:    55115 lbs (passengers/freight)
+
+This leaves us with a figure of 121253 lbs for fuel & other
+consumables.
+
+
+
+Lee Elliott.
+-->
+
+<airplane mass="206130">
+
+<!-- Approach configuration -->
+  <approach speed="140" aoa="9.0" fuel="0.9">
+    <solve-weight idx="0" weight="55115">
+    </solve-weight>
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.7"/>
+    <control-setting axis="/controls/engines/engine[0]/condition" value="1.0"/>
+<!--    <control-setting axis="/controls/engines/engine[0]/propeller-pitch" value="0.0"/> -->
+
+    <control-setting axis="/controls/engines/engine[1]/throttle" value="0.7"/>
+    <control-setting axis="/controls/engines/engine[1]/condition" value="1.0"/>
+<!--    <control-setting axis="/controls/engines/engine[1]/propeller-pitch" value="0.0"/> -->
+
+    <control-setting axis="/controls/engines/engine[2]/throttle" value="0.7"/>
+    <control-setting axis="/controls/engines/engine[2]/condition" value="1.0"/>
+<!--    <control-setting axis="/controls/engines/engine[2]/propeller-pitch" value="0.0"/> -->
+
+    <control-setting axis="/controls/engines/engine[3]/throttle" value="0.7"/>
+    <control-setting axis="/controls/engines/engine[3]/condition" value="1.0"/>
+<!--    <control-setting axis="/controls/engines/engine[3]/propeller-pitch" value="0.0"/> -->
+
+    <control-setting axis="/controls/flight/flaps" value="1.0"/>
+    <control-setting axis="/controls/gear/gear-down" value="1"/>
+  </approach>
+
+<!-- Cruise configuration -->
+  <cruise speed="475" alt="39370" fuel="0.6">
+    <solve-weight idx="0" weight="55115">
+    </solve-weight>
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[0]/condition" value="1.0"/>
+<!--    <control-setting axis="/controls/engines/engine[0]/propeller-pitch" value="1.0"/> -->
+
+    <control-setting axis="/controls/engines/engine[1]/throttle" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[1]/condition" value="1.0"/>
+<!--    <control-setting axis="/controls/engines/engine[1]/propeller-pitch" value="1.0"/> -->
+
+    <control-setting axis="/controls/engines/engine[2]/throttle" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[2]/condition" value="1.0"/>
+<!--    <control-setting axis="/controls/engines/engine[2]/propeller-pitch" value="1.0"/> -->
+
+    <control-setting axis="/controls/engines/engine[3]/throttle" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[3]/condition" value="1.0"/>
+<!--    <control-setting axis="/controls/engines/engine[3]/propeller-pitch" value="1.0"/> -->
+
+    <control-setting axis="/controls/flight/flaps" value="0.0"/>
+    <control-setting axis="/controls/flight/elevator-trim" value="-0.2"/>
+    <control-setting axis="/controls/gear/gear-down" value="0"/>
+  </cruise>
+
+  <cockpit x="-3.50" y="0.0" z="1.5"/>
+
+<!-- Fuselage -->
+  <fuselage ax="0" ay="0" az="0" bx="-53.14" by="0" bz="1.34"
+            width="4.4" taper="0.5" midpoint="0.5"/>
+
+<!-- Wings -->
+  <wing x="-21.0" y="1.7" z="-0.57" taper="0.3"
+        length="32.45" chord="10.24" sweep="27.14"
+        dihedral="0.0" camber="0.08" incidence="0">
+    <stall aoa="20.0" width="3" peak="1.3"/>
+    <flap0 start="0.0" end="0.6" lift="1.4" drag="1.5"/>
+    <flap1 start="0.6" end="0.9" lift="1.2" drag="1.3"/>
+
+    <control-input axis="/controls/flight/flaps" control="FLAP0"/>
+    <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
+    <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
+
+    <control-output control="FLAP0" side="left"
+                    prop="/surface-positions/left-flap-pos-norm"/>
+    <control-output control="FLAP0" side="right"
+                    prop="/surface-positions/right-flap-pos-norm"/>
+    <control-output control="FLAP0"
+                    prop="/surface-positions/flap-pos-norm"/>
+
+    <control-output control="FLAP1" side="left"
+                    prop="/surface-positions/left-aileron-pos-norm"/>
+    <control-output control="FLAP1" side="right"
+                    prop="/surface-positions/right-aileron-pos-norm"/>
+
+    <control-speed control="FLAP0" transition-time="15"/>
+    <control-speed control="FLAP1" transition-time="1.0"/>
+
+  </wing>
+
+  <hstab x="-48.31" y="1.3" z="1.13" taper="0.46" effectiveness="2.0"
+         length="9.62" chord="5.5" sweep="27.50" dihedral="0.0">
+    <stall aoa="22.0" width="3" peak="1.5"/>
+    <flap0 start="0" end="1" lift="1.5" drag="1.6"/>
+
+    <control-input axis="/controls/flight/elevator" control="FLAP0"/>
+    <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+
+    <control-output control="FLAP0" side="left"
+                    prop="/surface-positions/left-elevator-pos-norm"/>
+    <control-output control="FLAP0" side="right"
+                    prop="/surface-positions/right-elevator-pos-norm"/>
+
+    <control-speed control="FLAP0" transition-time="2.0"/>
+
+  </hstab>
+
+  <vstab x="-48.5" y="0" z="2.58" taper="0.6"
+         length="9.0" chord="7.58" sweep="30">
+    <stall aoa="16.0" width="4" peak="1.5"/>
+    <flap0 start="0.25" end="0.8" lift="1.8" drag="1.5"/>
+
+    <control-input axis="/controls/flight/rudder" control="FLAP0"
+                   effectiveness="1.0" invert="true"/>
+    <control-input axis="/controls/flight/rudder-trim" control="FLAP0"
+                   invert="true"/>
+
+    <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
+
+    <control-speed control="FLAP0" transition-time="2.0"/>
+
+  </vstab>
+
+<!-- Props & engines -->
+<!--
+     I found a dry weight figure for the Kuznetsov NK-12 of 6393 lb so
+     I've rounded the figure up to 7000 lb to include the fluids and props.
+     
+     I was also given the following numbers for the NK-12:
+     
+     Max/Emergency power:     12000 shp + 2650 lb thrust @ 9250 rpm
+     Normal/Continuous power:  8000 shp + 1760 lb thrust @ 8250 rpm
+     
+     The prop RPM figures I was given were
+     Max/Emergency RPM:     840
+     Normal/Continuous RPM: 750
+     
+-->
+<!-- Left Outer -->
+<!--
+  <propeller x="-23.2" y="15.28" z="-1.4"
+             radius="3.2" mass="7000" moment="10500" contra="1"
+             cruise-alt="36000" cruise-speed="431"
+             cruise-rpm="750" cruise-power="9700"
+             takeoff-rpm="840" takeoff-power="14600"
+             min-rpm="750" max-rpm="840"
+             >
+-->
+  <propeller x="-23.2" y="15.28" z="-1.4"
+             radius="3.2" mass="7000" moment="10500" contra="1"
+             cruise-alt="1000" cruise-speed="280"
+             cruise-rpm="750" cruise-power="9700"
+             takeoff-rpm="840" takeoff-power="14600"
+             min-rpm="700" max-rpm="840"
+             manual="true"
+             >
+
+    <turbine-engine eng-power="14600" eng-rpm="840" alt="36000"
+                    min-n2="80" max-n2="100"
+                    flat-rating="14660">
+    </turbine-engine>
+    
+    <actionpt x="-19.85" y="15.28" z="-1.4"/>
+
+    <control-input axis="/controls/engines/engine[0]/throttle"
+                   control="THROTTLE"/>
+    <control-input axis="/controls/engines/engine[0]/starter"
+                   control="STARTER"/>
+    <control-input axis="/controls/engines/engine[0]/propeller-pitch"
+                   control="ADVANCE"/>
+    <control-input axis="/controls/engines/engine[0]/propeller-feather"
+                   control="PROPFEATHER"/>
+    <control-input axis="/controls/engines/engine[0]/condition"
+                   control="CONDLEVER"/>
+
+    <control-output control="ADVANCE" prop="/engines/engine[0]/propeller-pitch"/>
+
+    <control-speed control="THROTTLE" transition-time="10.0"/>
+    
+  </propeller>
+
+<!-- Left Inner -->
+  <propeller x="-19.0" y="8.0" z="-1.61"
+             radius="3.2" mass="7000" moment="10500" contra="1"
+             cruise-alt="1000" cruise-speed="280"
+             cruise-rpm="750" cruise-power="9700"
+             takeoff-rpm="840" takeoff-power="14600"
+             min-rpm="700" max-rpm="840"
+             manual="true"
+             >
+
+    <turbine-engine eng-power="14600" eng-rpm="840" alt="36000"
+                    min-n2="80" max-n2="100"
+                    flat-rating="14660">
+    </turbine-engine>
+    
+    <actionpt x="-15.65" y="8.0" z="-1.61"/>
+
+    <control-input axis="/controls/engines/engine[1]/throttle"
+                   control="THROTTLE"/>
+    <control-input axis="/controls/engines/engine[1]/starter"
+                   control="STARTER"/>
+    <control-input axis="/controls/engines/engine[1]/propeller-pitch"
+                   control="ADVANCE"/>
+    <control-input axis="/controls/engines/engine[1]/propeller-feather"
+                   control="PROPFEATHER"/>
+    <control-input axis="/controls/engines/engine[1]/condition"
+                   control="CONDLEVER"/>
+
+    <control-output control="ADVANCE" prop="/engines/engine[1]/propeller-pitch"/>
+
+    <control-speed control="THROTTLE" transition-time="10.0"/>
+    
+  </propeller>
+
+<!-- Right Inner -->
+  <propeller x="-19.0" y="-8.0" z="-1.61"
+             radius="3.2" mass="7000" moment="10500" contra="1"
+             cruise-alt="1000" cruise-speed="280"
+             cruise-rpm="750" cruise-power="9700"
+             takeoff-rpm="840" takeoff-power="14600"
+             min-rpm="700" max-rpm="840"
+             manual="true"
+             >
+
+    <turbine-engine eng-power="14600" eng-rpm="840" alt="36000"
+                    min-n2="80" max-n2="100"
+                    flat-rating="14660">
+    </turbine-engine>
+    
+    <actionpt x="-15.65" y="-8.0" z="-1.61"/>
+    
+    <control-input axis="/controls/engines/engine[2]/throttle"
+                   control="THROTTLE"/>
+    <control-input axis="/controls/engines/engine[2]/starter"
+                   control="STARTER"/>
+    <control-input axis="/controls/engines/engine[2]/propeller-pitch"
+                   control="ADVANCE"/>
+    <control-input axis="/controls/engines/engine[2]/propeller-feather"
+                   control="PROPFEATHER"/>
+    <control-input axis="/controls/engines/engine[2]/condition"
+                   control="CONDLEVER"/>
+
+    <control-output control="ADVANCE" prop="/engines/engine[2]/propeller-pitch"/>
+
+    <control-speed control="THROTTLE" transition-time="10.0"/>
+    
+  </propeller>
+
+<!-- Right Outer -->
+  <propeller x="-23.2" y="-15.28" z="-1.4"
+             radius="3.2" mass="7000" moment="10500" contra="1"
+             cruise-alt="1000" cruise-speed="280"
+             cruise-rpm="750" cruise-power="9700"
+             takeoff-rpm="840" takeoff-power="14600"
+             min-rpm="700" max-rpm="840"
+             manual="true"
+             >
+
+    <turbine-engine eng-power="14600" eng-rpm="840" alt="36000"
+                    min-n2="80" max-n2="100"
+                    flat-rating="14660">
+    </turbine-engine>
+    
+    <actionpt x="-19.85" y="-15.28" z="-1.4"/>
+
+    <control-input axis="/controls/engines/engine[3]/throttle"
+                   control="THROTTLE"/>
+    <control-input axis="/controls/engines/engine[3]/starter"
+                   control="STARTER"/>
+    <control-input axis="/controls/engines/engine[3]/propeller-pitch"
+                   control="ADVANCE"/>
+    <control-input axis="/controls/engines/engine[3]/propeller-feather"
+                   control="PROPFEATHER"/>
+    <control-input axis="/controls/engines/engine[3]/condition"
+                   control="CONDLEVER"/>
+
+    <control-output control="ADVANCE" prop="/engines/engine[3]/propeller-pitch"/>
+
+    <control-speed control="THROTTLE" transition-time="10.0"/>
+    
+  </propeller>
+
+<!-- Fuel tanks. -->
+  <tank x="-22.0" y="0.0" z="-0.8" capacity="24000"/>
+  <tank x="-22.7" y="4.8" z="-0.8" capacity="24000"/>
+  <tank x="-26.0" y="11.5" z="-0.9" capacity="24000"/>
+  <tank x="-22.7" y="-4.8" z="-0.8" capacity="24000"/>
+  <tank x="-26.0" y="-11.5" z="-0.9" capacity="24000"/>
+
+<!-- Landing gear -->
+<!-- Nose -->
+  <gear x="-4.6" y="0" z="-6.12" retract-time="7" compression="0.5" spring="0.2">
+    <control-input axis="/controls/flight/rudder" control="STEER" square="true"/>
+    <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+    <control-output control="STEER" prop="/gear/gear[0]/steering-norm"/>
+    <control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
+    <control-speed control="EXTEND" transition-time="7"/>
+  </gear>
+
+<!-- Left -->
+  <gear x="-24.9" y="8.0" z="-6.48" retract-time="7" compression="1.0" spring="0.6">
+    <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
+    <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+    <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+    <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
+    <control-speed control="EXTEND" transition-time="10"/>
+  </gear>
+
+<!-- Right -->
+  <gear x="-24.9" y="-8.0" z="-6.48" retract-time="7" compression="1.0" spring="0.6">
+    <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
+    <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+    <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+    <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
+    <control-speed control="EXTEND" transition-time="10"/>
+  </gear>
+
+<!-- Trim Ballast -->
+  <ballast x="-10.0" y="0" z="0" mass="45000"/>
+  
+<!-- Passengers/cargo -->
+  <weight x="-23.7" y="0" z="-0.40" size="0.1"
+          mass-prop="/yasim/weights/payload"/>
+
+</airplane>
